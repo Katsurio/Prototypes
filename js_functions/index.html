@@ -12,21 +12,23 @@
 <div id="game-area">
     <div class="card">
         <div class="front"><img src="imgs/british_flag.jpg" alt=""></div>
-        <div class="back"><img src="imgs/card_design.png" alt="Card Back"></div>
+        <div class="back" onclick="cardFlip(this)"><img src="imgs/card_design.png" alt="Card Back"></div>
     </div>
     <div class="card">
         <div class="front"><img src="imgs/path.jpg" alt=""></div>
-        <div class="back"><img src="imgs/card_design.png" alt="Card Back"></div>
+        <div class="back" onclick="cardFlip(this)"><img src="imgs/card_design.png" alt="Card Back"></div>
     </div>
     <div class="card">
         <div class="front"><img src="imgs/british_flag.jpg" alt=""></div>
-        <div class="back"><img src="imgs/card_design.png" alt="Card Back"></div>
+        <div class="back" onclick="cardFlip(this)"><img src="imgs/card_design.png" alt="Card Back"></div>
     </div>
     <div class="card">
         <div class="front"><img src="imgs/path.jpg" alt=""></div>
-        <div class="back"><img src="imgs/card_design.png" alt="Card Back"></div>
+        <div class="back" onclick="cardFlip(this)"><img src="imgs/card_design.png" alt="Card Back"></div>
     </div>
 </div>
-
+<button id="button-click-me" onclick="myMessage();">Click Me</button>
+<button id="button-add" onclick="add(2, 3);">ADD</button>
+<button id="button-add2" onclick="console.log(add2result);">ADD #2</button>
 </body>
 </html>
