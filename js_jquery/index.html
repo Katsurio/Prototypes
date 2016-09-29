@@ -8,7 +8,7 @@
     <!-- This should always be before your script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-        var count = 0; // A counter variable to be used in Feature Set 3
+        var count = 1; // A counter variable to be used in Feature Set 3
 
         $(document).ready(function(){
             //Here are some examples using jQuery
@@ -20,7 +20,7 @@
             //It creates an event handler for when div1 is clicked
             $("#div1").click(function(){
                 console.log("You clicked div 1, It is pink"); //Fix the output to reflect div1's new color
-                if($(this).html("Click count: " + count++));
+                $(this).html("Click count: " + count++);
             });
 
             //Here is another .click example that changes the color of the div every time you click on it
