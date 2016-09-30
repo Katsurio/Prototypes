@@ -41,7 +41,12 @@
     <script>
         $(document).ready(function () {
             //playground 1 code
-
+            var the_h1 = $('<h1>').text("I am a heading");
+            var top_p = $('<p>').text("This is an awesome paragraph");
+            var bottom_p = $('<p>').css({'color': 'red'}).text('This has red text');
+            $(the_h1).appendTo('#playground1');
+            $(top_p).appendTo('#playground1');
+            $(bottom_p).appendTo('#playground1');
             //playground 2 code
 
             //playground 3 code
