@@ -43,12 +43,15 @@
             //playground 1 code
             var the_h1 = $('<h1>').text("I am a heading");
             var top_p = $('<p>').text("This is an awesome paragraph");
-            var bottom_p = $('<p>').css({'color': 'red'}).text('This has red text');
+            var bottom_p = $('<p>').css({'color' : 'red'}).text('This has red text');
             $(the_h1).appendTo('#playground1');
             $(top_p).appendTo('#playground1');
             $(bottom_p).appendTo('#playground1');
             //playground 2 code
-
+            var top_div = $('<div>').addClass('awesome_class').text('Here is some awesome div text');
+            var middle_div = $('<div>').addClass('awesome_class', '#my_awesome_div2').text('Here is MORE awesome div text');
+            var bottom_div = $('<div>').addClass('awesome_class', '#my_awesome_div2').html('Here is <strong>EVEN MORE</strong> awesome div text');
+            $('#playground2').append(top_div).append(middle_div).append(bottom_div);
             //playground 3 code
         });
     </script>
