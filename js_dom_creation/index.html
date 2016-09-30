@@ -44,9 +44,7 @@
             var the_h1 = $('<h1>').text("I am a heading");
             var top_p = $('<p>').text("This is an awesome paragraph");
             var bottom_p = $('<p>').css({'color' : 'red'}).text('This has red text');
-            $(the_h1).appendTo('#playground1');
-            $(top_p).appendTo('#playground1');
-            $(bottom_p).appendTo('#playground1');
+            $('#playground1').append(the_h1).append(top_p).append(bottom_p);
             //playground 2 code
             var top_div = $('<div>').addClass('awesome_class').text('Here is some awesome div text');
             var middle_div = $('<div>').addClass('awesome_class', '#my_awesome_div2').text('Here is MORE awesome div text');
@@ -58,13 +56,11 @@
                 var the_li = $("<li>").text('Link ' + i);
                 the_ul.append(the_li);
             }
-            var slender_figure = $('<figure>').addClass('awesome_picture'), {
-                the_img = $('<img>')
-            };
-
-            $('#playground3').append(the_ul);
-
-
+            var slender_figure = $('<figure>').addClass('awesome_picture');
+            var the_img = $('<img src="http://comerecommended.com/wp-content/uploads/2013/01/how-to-get-awesome-back.jpg">');
+            var fig_newton_cap = $('<figcaption>').html('That\'s right, <span class="bold_text">you are</span>');
+            slender_figure.append(the_img).append(fig_newton_cap);
+            $('#playground3').append(the_ul).append(slender_figure);
         });
     </script>
 </head>
