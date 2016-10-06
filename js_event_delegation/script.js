@@ -10,7 +10,7 @@
 //========== Write your code below ===========//
 $(document).ready(function() {
     $('#container').on('click', '#list button', function() {
-        console.log($(this).text());
+        console.log($(this).text("Tic...").text());
     });
     var append_to_list = $('#list');
     var new_li1 = $("<li>");
@@ -43,8 +43,8 @@ $(document).ready(function() {
         }
         return false;
     });
-    var unique_google_li = $("<button>").text('Unique Google Button').css('margin', '10px').click(function () {
-        window.location = "https://www.google.com/";
+    var unique_google_li = $("<button>").addClass("custom_button").css('margin', '10px').click(function () {
+        window.location = "https://www.google.com/search?q=Daniel+Paschal&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiSitr4zcXPAhXB5yYKHTqLBPAQ_AUICSgC&biw=718&bih=663#imgrc=E5BgEGj-SrRQyM%3A";
     });
     append_to_list.append(new_li1);
     new_li1.append(new_button);
