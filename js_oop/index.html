@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS OOP</title>
+    <script>
+        // FS-1 Coin Stack
+        var coin_stack = function(initial_amount) {
+            this.value = initial_amount;
+//            console.log('coinstack called:', this.value);
+            this.add_coins = function(amount_added) {
+                this.value += amount_added;
+            };
+            this.remove_coins = function(amount_removed) {
+                if(this.value >= amount_removed){
+                    this.value -= amount_removed;
+                } else if(this.value < amount_removed) {
+                    this.value -= this.value;
+                    return this.value;
+                }
+            }
+            this.
+        };
+        var my_coin_stack = new coin_stack(50);
+        console.log('my_coin_stack contains: ' + my_coin_stack.value + ' coins');
+        // FS-2 Add Remove Coins
+        my_coin_stack.add_coins(15);
+        console.log('I have ' + my_coin_stack.value + ' coins in my coin stack');
+        my_coin_stack.remove_coins(37);
+        console.log('I have ' + my_coin_stack.value + ' coins in my coin stack');
+        my_coin_stack.remove_coins(55);
+        console.log('I have ' + my_coin_stack.value + ' coins in my coin stack');
+    </script>
+</head>
+<body>
+    <h1>JavaScript OOP Prototype</h1>
+</body>
+</html>
