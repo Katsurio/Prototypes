@@ -5,23 +5,46 @@
     <title>JS OOP</title>
     <script>
         // FS-1 Coin Stack
-        var coin_stack = function(initial_amount) {
+        var Coin_stack = function(initial_amount) {
             this.value = initial_amount;
-//            console.log('coinstack called:', this.value);
+//            console.log('Coinstack called:', this.value);
             this.add_coins = function(amount_added) {
                 this.value += amount_added;
             };
             this.remove_coins = function(amount_removed) {
                 if(this.value >= amount_removed){
                     this.value -= amount_removed;
+                    return amount_removed;
                 } else if(this.value < amount_removed) {
+                    var value_before_amount_removed = this.value;
                     this.value -= this.value;
-                    return this.value;
+                    return value_before_amount_removed;
                 }
             }
-            this.
         };
-        var my_coin_stack = new coin_stack(50);
+        Coin_stack.prototype.transfer_coins = function(withdrawn_from, transfer_amount) {
+            var money_jacked = withdrawn_from.remove_coins(transfer_amount);
+            this.add_coins(money_jacked);
+            return money_jacked;
+        };
+        Coin_stack.prototype.sell_organs = function (buyer, cost) {
+            if(this.value < cost){
+                console.log("No organs for you!!!");
+            } else {
+            return this.transfer_coins(buyer, cost);
+            }
+        };
+        Coin_stack.prototype.hire_laborer = function (laborer, pay_rate, hours_worked) {
+            var salary = pay_rate * hours_worked;
+            if(this.value < salary){
+                console.log("Do you take credit cards? How about organs?");
+            } else{
+            return this.transfer_coins(laborer, salary);
+            }
+        };
+
+
+        var my_coin_stack = new Coin_stack(50);
         console.log('my_coin_stack contains: ' + my_coin_stack.value + ' coins');
         // FS-2 Add Remove Coins
         my_coin_stack.add_coins(15);
@@ -30,6 +53,19 @@
         console.log('I have ' + my_coin_stack.value + ' coins in my coin stack');
         my_coin_stack.remove_coins(55);
         console.log('I have ' + my_coin_stack.value + ' coins in my coin stack');
+        // FS-3 Prototype in the prototype
+        var erics_coin_stack = new Coin_stack(50);
+        var dans_coin_stack = new Coin_stack(50);
+        console.log("Dan has " + dans_coin_stack.value + " and Eric has " + erics_coin_stack.value);
+        erics_coin_stack.transfer_coins(dans_coin_stack,30);
+        console.log("Dan has " + dans_coin_stack.value + " and Eric has " + erics_coin_stack.value);
+        erics_coin_stack.transfer_coins(dans_coin_stack,120);
+        console.log("Dan has " + dans_coin_stack.value + " and Eric has " + erics_coin_stack.value);
+        // FS-4 Practice Prototype in the prototype
+        dans_coin_stack.sell_organs(erics_coin_stack,140000);
+        console.log("Dan has " + dans_coin_stack.value + " and Eric has " + erics_coin_stack.value);
+        dans_coin_stack.hire_laborer(erics_coin_stack, 10, 15);
+        console.log("Dan has " + dans_coin_stack.value + " and Eric has " + erics_coin_stack.value);
     </script>
 </head>
 <body>
