@@ -17,20 +17,24 @@ app.controller("musicController", function($http, $log, $scope){
         // };
         // this.url = this.artist.urlStart+this.artist.name+this.artist.urlEnd;
         this.url = "https://itunes.apple.com/search?term="+this.artist+"&callback=JSON_CALLBACK";
-        $log.log(this.url, this.artist.name);
+        $log.log(this.url);
     };
-    // this.callItunes = function(){
-    //     var self = this;
-    //     $http({
-    //         url: self.url,
-    //         method: "jsonp",
-    //         cache: false
-    //     })
-    //     .then(
-    //         function() {
-    //             $log.info(response);
-    //             self.data = response.data;
-    //         }
-    //     )
-    // }
+    this.callItunes = function(){
+        var self = this;
+        self.makeUrl();
+        $http({
+            url: self.url,
+            method: "jsonp",
+            cache: false
+        })
+        .then(
+            function(response) {
+                $log.info(response);
+                self.data = response.data.results;
+                $log.log(self.data);
+            },
+            function(response){
+                self.data = response.data || "Failed to load";
+            });
+    };
 });

@@ -7,9 +7,24 @@
 </head>
 <body>
 <div ng-controller="musicController as mc">
-    Artist: <input type="text" ng-model="mc.makeUrl.term"><br>
-    <button ng-click="mc.makeUrl()">Submit</button>
-    <p>{{mc.makeUrl.term}}</p>
+    Artist: <input type="text" ng-model="mc.artist"><br>
+    <button ng-click="mc.callItunes()">Submit</button>
+    <p>{{mc.artist}}</p>
+    <table>
+        <tr>
+            <th>Art</th>
+            <th>Artist</th>
+            <th>Song Title</th>
+            <th>Album</th>
+            <th>Price</th>
+        <tr ng-repeat="results in mc.data">
+            <td><img ng-src="{{ results.artworkUrl30 }}"</td>
+            <td>{{ results.artistName }}</td>
+            <td>{{ results.trackName}}</td>
+            <td>{{ results.collectionName }}</td>
+            <td>{{ '$' + results.trackPrice }}</td>
+        </tr>
+    </table>
 </div>
 <script src="script.js"></script>
 </body>
