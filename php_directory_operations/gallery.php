@@ -32,17 +32,14 @@
         function clickity_clack() {
             console.log("clickity clack called");
             var img_url = $(this).attr('src');
-            $('.modal_body').attr('src', img_url);
-//            $('#images_modal').modal();
             $('.modal-img').attr('src', img_url);
         }
         function display_image(url) {
             console.log("display images called");
-            $image = $('<img>').attr('data-toggle', "modal").attr("data-target", '#images_modal').attr('src', url).click(clickity_clack);
+            $image = $('<img>').attr('data-toggle',"modal").attr("data-target", '#images_modal').attr('src', url).click(clickity_clack);
             $append_image = $('<div>').addClass('col-xs-3').append($image);
             $('.container').append($append_image);
         }
-
 
         function applyClickHandlers() {
             $("button").click();
