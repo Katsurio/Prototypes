@@ -27,4 +27,5 @@ if(mysqli_affected_rows($conn) > 0){
 else{
     print("<br>ERROR, needs more blinker fluid");
 }
+mysqli_close($conn);
 ?>
