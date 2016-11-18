@@ -2,12 +2,14 @@
 <?php
 require_once('mysql_connect.php');
 
-print_r($conn);
+//print_r($conn);
 
-$title = 'Spilt milk';
-$details = "Don\'t cry, just clean it";
+$form_info = $_POST;
+
+$title = "$form_info[title]";
+$details = "$form_info[details]";
 $timestamp = time();
-$user_id = 5;
+$user_id = "$form_info[user_id]";
 
 $query = /** @lang text */
     "INSERT INTO `todo_items` SET
@@ -16,10 +18,10 @@ $query = /** @lang text */
             `timestamp` = '$timestamp',
             `user_id` = '$user_id'";
 
-print('<br><br>'.$query.'<br><br>');
+//print("<br><br>$query<br><br>");
 
 $result = mysqli_query($conn, $query);
-print("<br><br><pre>".print_r($result, true).'</pre>');
+//print("'<br><br><pre>'.print_r($result, true).'</pre>'");
 
 if(mysqli_affected_rows($conn) > 0){
     print("<br>Row was inserted");
@@ -27,5 +29,7 @@ if(mysqli_affected_rows($conn) > 0){
 else{
     print("<br>ERROR, needs more blinker fluid");
 }
+
+print_r("<br>Right here: $form_info");
 mysqli_close($conn);
 ?>
