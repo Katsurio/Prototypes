@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Reference Data Types</title>
+    <script>
+        //*** FS-1.0 Student Array
+        var student_array = ["Tyrone", "Tyrell", "Terrance", "Tommy", "Tobias"];
+                console.log(student_array[2]);
+        //*** FS-1.1 Array Methods
+        console.log(student_array);
+        console.log(student_array.length);
+        student_array.push("Thomas", "Tonka");
+        console.log(student_array.length);
+        console.log(student_array);
+        //*** FS-2.0 Build an Object
+        var student = {};
+        student.firstName = 'John (Jef)';
+        student.lastName = 'Fisher';
+        student.age = 31;
+        student.school = 'LearningFuze';
+        student.questionList = [];
+        student.hasQuestion = false;
+        //*** FS-2.1 Add Methods to the Madness
+        student.greeting = function() {
+            return "Hello, my name is " + this.firstName;
+        };
+        student.aboutMe = function() {
+            return "My full name is " + this.firstName + "" + this.lastName + ", I am " + this.age + " years old and I am a student at " + this.school + ".";
+        };
+        student.askQuestion = function(question) {
+            this.questionList.push(question);
+            this.hasQuestion = true;
+            return "A question has been added to your list.";
+        };
+        console.log(student.askQuestion("What time is it?"));
+        student.answerQuestion = function() {
+            if(this.hasQuestion) {
+                return this.questionList.pop();
+            } else {
+                return "You have no pending questions.";
+            }
+        };
+//        console.log("CHECK student.questionList BEFORE answerQuestion method call " + student.questionList.length);
+//        console.log("CHECK student.answerQuestion method call " +student.answerQuestion());
+//        console.log("CHECK student object AFTER answerQuestion method call " + student.questionList.length);
+        //*** FS-2.2 Test Your Student
+        console.log("(1) TEST student.greeting = ", student.greeting());
+        console.log("(2) TEST student.aboutMe = ", student.aboutMe());
+        console.log("(3) TEST student.answerQuestion = ", student.answerQuestion());
+        console.log("(4) TEST student.askQuestion = ", student.askQuestion("Pardon me sir, do you have Grey Poupon?"));
+        console.log("(5) TEST student.askQuestion = ", student.askQuestion("Where's the fountain of youth?"));
+        console.log("(6) TEST student.askQuestion = ", + student.askQuestion("Do three lefts make a right?"));
+        console.log("(7) TEST student.answerQuestion = ", + student.answerQuestion());
+        console.log("(9-ii) TEST student.questionList = ", + student.questionList);
+        // Quick Exercise
+        console.log("Here is my student object " + student);
+        console.log("Here is my student object", student);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
