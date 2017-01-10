@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //FS-1
+        var fs1a = /e/g;
+        var fs1b = /[eE]/g; //or var fs1b = /e/gi;
+        var fs1c = /st[ia]r/gm;
+        //FS-2
+        var phoneNumber = /\(?1?[ -]?\(?[0-9]{3}\)?[ -]*[0-9]{3}[ -]*[0-9]{4}/g;
+        //FS-3
+        var passwordRegex = /^(?=.*[[:lower:]])(?=.*[[:upper:]])(?=.*[[:digit:]])[[:alpha:]][[:alnum:]]{6,32}$/gm;
+    </script>
+</head>
+<body>
+    <h1>JavaScript - Regular Expressions</h1>
+</body>
+</html>
