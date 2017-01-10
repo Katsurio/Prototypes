@@ -1,12 +1,31 @@
 <!doctype html>
-<html lang="en">
+<html ng-app="KatsurioTunes" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Angular Services Intro</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 </head>
 <body>
-
+<div ng-controller="musicController as mc">
+    Artist: <input type="text" ng-model="mc.artist"><br>
+    <button ng-click="mc.callItunes()">Submit</button>
+    <p>{{mc.artist}}</p>
+    <table>
+        <tr>
+            <th>Art</th>
+            <th>Artist</th>
+            <th>Song Title</th>
+            <th>Album</th>
+            <th>Price</th>
+        <tr ng-repeat="results in mc.data">
+            <td><img ng-src="{{ results.artworkUrl30 }}"</td>
+            <td>{{ results.artistName }}</td>
+            <td>{{ results.trackName}}</td>
+            <td>{{ results.collectionName }}</td>
+            <td>{{ '$' + results.trackPrice }}</td>
+        </tr>
+    </table>
+</div>
 <script src="script.js"></script>
 </body>
 </html>
