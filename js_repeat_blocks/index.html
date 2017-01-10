@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Loops</title>
+    <script>
+        // FS-1
+        console.log("****** Ascending order ******");
+        var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        for (var i = 0; i < numbers.length; i++) {
+            console.log(numbers[i]);
+        }
+        console.log("****** Descending order ******");
+        for (var i = numbers.length; i >= 0; i--) {
+            console.log(numbers[i]);
+        }
+        console.log("***** Odd numbers *****");
+        for (var i = 0; i < numbers.length; i+=2) {
+            console.log(numbers[i]);
+        }
+        console.log("***** Ver. 2 Odd numbers  *****");
+        var mixedArray = [4, 56, 11, 13, 97, 22, 7, 36, 19, 5, 8, 10];
+        for (var i = 0; i < mixedArray.length; i++) {
+            if((mixedArray[i] % 2) != 0) {
+                console.log(mixedArray[i]);
+            }
+        }
+        // FS-2
+        var classRoom = {
+            desk1: 'Stu',
+            desk2: 'Peggy',
+            desk3: 'LoneStar',
+            desk4: 'George',
+            desk5: 'Sheldon'
+        };
+        for (var student in classRoom) {
+            console.log(classRoom[student] + " is at " + student + ".");
+        }
+        // FS-3
+        var studentArray = [
+            {name: "Bob", grade: 87},
+            {name: "Fred", grade: 82},
+            {name: "George", grade: 93},
+            {name: "Robert", grade: 85}];
+        function findStudent(name) {
+            var output = "";
+            var i = 0;
+            var matchFound = false;
+            while(i < studentArray.length) {
+                if (studentArray[i].name == name) {
+                    matchFound = true;
+                    return ('Found ' + name + ' their grade is: ' + studentArray[i].grade + ".");
+                }
+                i++;
+            }
+            if (matchFound == false) {
+                return ("Student " + name + " not found.");
+            }
+        }
+        console.log("Test 1:", findStudent("George"));
+        console.log("Test 2:", findStudent("Fred"));
+        console.log("Test 3:", findStudent("Hank"));
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Angular DOM and Events</title>
+    <title>Angular Intro</title>
     <!-- Add Angular CDN below -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 </head>
-<body>
-
+<body ng-app>
+<div ng-init="varKatsurio=true; counter=0">
+    <span ng-hide="varKatsurio">Ze button iz enabled</span>
+    <span ng-show="varKatsurio">Ze button iz disabled</span>
+    <button ng-disabled="varKatsurio" ng-click="counter = counter + 1">Mother Clicker</button>
+    <input type="checkbox" ng-model="varKatsurio">
+    <p>Button Clicks: {{ counter }}</p>
+</div>
 </body>
 </html>
